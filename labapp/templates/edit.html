@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+    <form method="POST" action="update/{{ members.id }}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="voterid">VoterID</label>
+            <input type="text" name="voterid" value="{{ members.voterid }}" class="form-control" required="required"/>
+        </div><br>
+        <div class="form-group">
+            <label for="name">Enter Your Name</label>
+            <input type="text" name="name" value="{{ members.name }}" class="form-control" required="required"/>
+        </div><br>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+        <select name="gender" name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        </select> 
+        </div><br>
+        <div class="form-group">
+            <label for="age">Age</label>
+        <input type="number" name="age" class="form-control" style="width:30%;" required="required"/>
+        </div><br>
+        <div class="form-group">
+        <label for="lastname">Place</label>
+        <input type="text" name="place" class="form-control" style="width:30%;" required="required"/>
+        </div><br>
+        <div class="form-group">
+        <p>Have you voted</p>
+            <input type="radio" id="Yes" name="status" value="Yes">
+            <label for="Yes">Yes</label><br>
+            <input type="radio" id="No" name="status" value="No">
+            <label for="No">No</label>
+            <br>      
+        </div><br>
+        <div class="form-group">
+            <button type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Update</button>
+        </div>
+    </form>
+{% endblock %}
